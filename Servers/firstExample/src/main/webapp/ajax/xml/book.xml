@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookInfo>
+	<book>
+		<title>나는 나로 살기로 했다</title>
+		<author>김수현</author>
+		<publish>2022.02.04</publish>
+	</book>
+	
+	<book>
+		<title>애거서 크리스티 전집 05 애크로이드 살인 사건</title>
+		<author>애거서 크리스티</author>
+		<publish>2014.01.20</publish>
+	</book>
+	
+	<book>
+		<title>사는 동안 틈틈이 행복합시다</title>
+		<author>박근호</author>
+		<publish>2025.06.17</publish>
+	</book>
+</bookInfo>

@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>subject 테이블 예제 : searchForm.jsp</title>
+		<link href="../image/icon.png" rel="icon" type="image/x-icon" />
+	</head>
+	<body>
+
+		<form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" id="searchSubject" placeholder="학과명 검색" aria-label="Search" />
+      <button class="btn btn-outline-success" type="button" id="searchAll" >학과명 검색</button>
+    </form>
+	</body>
+</html>

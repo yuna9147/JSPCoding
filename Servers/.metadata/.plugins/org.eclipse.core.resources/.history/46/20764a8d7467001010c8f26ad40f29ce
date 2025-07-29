@@ -1,0 +1,5 @@
+$("#btn").on("click",function() {
+	if(!$("input[name='site']").is(":checked")){
+		
+	}
+})

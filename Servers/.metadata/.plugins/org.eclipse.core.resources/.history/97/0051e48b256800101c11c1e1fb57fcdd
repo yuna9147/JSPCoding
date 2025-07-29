@@ -1,0 +1,25 @@
+$("#submitBtn").on("click",function(){
+	
+	if($("#title").val()===""){
+		alert("v입력해 주세요");
+		return;
+	}
+	
+	if($("#author").val()===""){
+			alert("v입력해 주세요");
+			return;
+		}
+		
+	if($("#publisher").val()===""){
+			alert("v입력해 주세요");
+			return;
+		}
+
+
+$("#bookForm").attr({
+	"action" : "/servletExample/bookInput",
+	"method":"post"
+
+});
+	$("#bookForm").submit();
+});

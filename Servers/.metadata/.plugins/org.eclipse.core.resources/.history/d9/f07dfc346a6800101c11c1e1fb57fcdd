@@ -1,0 +1,8 @@
+$("#sendBtn").on("click", function(){
+	if($("#word").val().replace("/\s/g","")===""){
+		alert("검색 키워드를 입력해 주세요");
+	}
+	
+	$("#form1").attr(action="../jsp/sendredirect.jsp")
+	$("#form1").submit();
+});

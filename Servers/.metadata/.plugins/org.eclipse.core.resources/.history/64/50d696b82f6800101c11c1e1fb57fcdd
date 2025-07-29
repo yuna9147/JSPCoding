@@ -1,0 +1,18 @@
+$("#submitBtn").on("click",function(){
+	$("#frm").attr({
+		"method":"post",
+		"action":"/test/singleout"
+	})
+	
+	if($("#id").val().replace("/\s/g","")===""){
+		alert("아이디를 입력해 주세요");
+	}
+	
+	if($("#name").val().replace("/\s/g","")===""){
+			alert("이름을 입력해 주세요");
+		}
+		
+	if($("#id").val().replace("/\s/g","")===""){
+			alert("아이디를 입력해 주세요");
+		}	
+})

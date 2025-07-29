@@ -1,0 +1,36 @@
+package test;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class SingleServlet
+ */
+@WebServlet("/singleServlet")
+public class SingleServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("charset=utf-8");
+		
+		String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		String city = request.getParameter("city");
+		
+		request.setAttribute("id", id);
+		request.setAttribute("name", name);
+		request.setAttribute("city", city);
+		
+		RequestDispatcher dispatch = request.getRequestDispatcher("singleout");
+		dispatch.forward(request, response);
+		
+	}
+
+}

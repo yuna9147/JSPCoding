@@ -1,0 +1,8 @@
+package com.subject;
+
+public class SubjectV{
+	private int no;
+	private String subjectNumber;
+	private String subjectName;
+	
+}

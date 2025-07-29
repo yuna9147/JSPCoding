@@ -1,0 +1,15 @@
+$("#submitBtn").on("click",function(){
+	
+	if($(this).prev().val().replace(/\s/g,"")===""){
+		alert("v입력해 주세요");
+		return;
+	}
+
+	$(this).prev().html()+
+$("#bookForm").attr({
+	"action" : "/servletExample/bookInput",
+	"method":"post"
+
+});
+	$("#bookForm").submit();
+});

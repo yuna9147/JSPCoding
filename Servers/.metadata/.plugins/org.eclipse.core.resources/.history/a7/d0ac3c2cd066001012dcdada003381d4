@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>select 태그와 post 방식 - lunch.html</title>
+		<link rel="shortcut icon" href="../image/icon.png" />
+		
+		<style>
+			button[type="button"]{
+			width:67px;
+			margin-top:5px;
+			}
+		</style>
+	</head>
+	<body>
+		<form name="form" id="form">
+			<select name="lunch" size="4" multiple>
+				<option value="떡볶이">떡볶이</option>
+				<option value="마라탕">마라탕</option>
+				<option value="햄버거">햄버거</option>
+				<option value="라면">라면</option>
+				<option value="김치볶음밥">김치볶음밥</option>
+				<option value="짜장면">짜장면</option>
+			</select><br/>
+			<button type="button" id="submitBtn">전송</button>
+		</form>
+		
+		<script src="../js/jquery-3.7.1.min.js"></script>
+		<script src="../js/lunch.js"></script>
+	</body>
+</html>

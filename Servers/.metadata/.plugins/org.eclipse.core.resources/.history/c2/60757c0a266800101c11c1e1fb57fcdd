@@ -1,0 +1,17 @@
+$("#submitBtn").on("click",function(){
+	
+	if($(this).prev().val().replace(/\s/g,"")===""){
+		alert($(this).prev().val().html()+"입력해 주세요");
+		return;
+	}
+	
+
+
+
+$("#bookForm").attr({
+	"action" : "/servletExample/bookInput",
+	"method":"post"
+
+});
+	$("#bookForm").submit();
+});

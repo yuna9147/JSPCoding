@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSON 예제 - 책정보</title>
+<link href="../image/icon.png" rel="icon" type="image/x-icon" />
+
+<link rel="stylesheet" href="../css/reset.css"/>
+<link rel="stylesheet" href="../css/common.css"/>
+</head>
+<body>
+	<h1 class="title">$.ajax() 함수를 사용한 JSON데이터 읽기 - 예제</h1>
+	<div class="console" id="result"></div>
+	
+	<script src="../js/jquery-3.7.1.min.js"></script>
+	<script>
+		$.ajax({
+			url:'/firstExample/ajax/json/book.json',
+			method:'get',
+			dataType:'json'
+		}).done(function (data){
+			$("#result").html("");
+			
+			let book = data.bookInfo.book;
+			
+			$(book).each(function() {
+				let title = this.title;
+				let author = this.author;
+				let publish = this.publish;
+				
+				let ul = $("<ul>");
+				let li1 = $("<li>").html(title);
+				let li2 = $("<li>").html(author);
+				let li3 = $("<li>").html(publish);
+				
+				ul.append(li1).append(li2).append(li3);
+				
+				$("#result").append(ul);
+				$("#result").append("<hr/>");
+			});
+			
+			}).fail(function(xhr,textStatus){
+				$("#result").html(textStatus + "(HTTP-"+ xhr.status +")");
+			});
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+package com.example;
+
+public class BookDTO {
+	private String title;
+	private String author;
+	private String publisher;
+	
+	public BookDTO() {
+		super();
+	}
+	
+	public BookDTO(String title, String author, String publisher) {
+		super();
+		this.title = title;
+		this.author = author;
+		this.publisher = publisher;
+	}
+	
+	
+}

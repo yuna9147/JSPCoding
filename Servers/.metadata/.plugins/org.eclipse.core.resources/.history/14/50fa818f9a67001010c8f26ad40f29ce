@@ -1,0 +1,15 @@
+$("#submitBtn").on("click",function(){
+	
+	if($("#title").val()==""){
+		alert("정보를 입력해 주세요");+-
+		$("#title").val()="";
+		$("#title").focus();
+	}
+
+
+$("#bookForm").attr({
+	"method":"post",
+	"action" : "/servletExample/bookOutput"
+});
+	$("#bookForm").submit();
+});

@@ -1,0 +1,35 @@
+const form = document.getElementById("scoreForm");
+const score = document.getElementById("score");
+
+score.addEventListener("input", function() {
+	score.setCustomValidity("");
+});
+
+form.addEventListener("submit", function(e) {
+	e.preventDefault();
+	
+	const pattern = /^(100|[1-9][0-9]?|0)$/;
+	
+	if(!pattern.test(score.value)) {
+		score.setCustomValidity("점수는 0~100점 사이로 입력해 주세요.");
+		score.reportValidity();
+		score.value = "";
+		return;
+	}
+	
+	/* 
+	form.method = "post";
+	//score.jsp연결
+	// form.action = "/scriptTag/jsp/score.jsp";
+	
+	//score 서블릿 연결
+	form.action = "/scriptTag/score";
+	
+	form.submit();
+	*/
+	$.ajax({
+		url:"/scriptTag/jsp/score2.jsp",
+		method:"post",
+		data: $(#"scoreForm")
+	})
+});

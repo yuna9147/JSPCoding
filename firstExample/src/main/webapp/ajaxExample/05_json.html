@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>json(2) - 05_json.html</title>
+<link href="../image/icon.png" rel="icon" type="image/x-icon" />
+
+<link rel="stylesheet" href="../css/reset.css"/>
+<link rel="stylesheet" href="../css/common.css"/>
+</head>
+<body>
+	<h1 class="title">$.ajax() 함수를 사용한 JSON데이터 읽기 (2)</h1>
+	<div class="exec">
+		<input type="button" value="JSON데이터 가져오기" id="mybtn" />
+	</div>
+	<div class="console" id="result"></div>
+	
+	<script src="../js/jquery-3.7.1.min.js"></script>
+	<script>
+		$("#mybtn").on("click",function() {
+			$.ajax({
+				url:'/firstExample/ajax/json/05.json',
+				method:'get',
+				dataType:'json'
+			}).done(function(json) {
+				$("#result").html("");
+			
+				let subject = json.school.subject;
+				
+				//배열의 길이만큼 반복처리
+				for(let i=0; i<subject.length; i++){
+					let title = subject[i].title;
+					let time = subject[i].time;
+					let teacher = subject[i].teacher;
+					
+					//결과 출력 동적요소 생성
+					let ul = $("<ul>");
+					let li1 = $("<li>").html(title);
+					let li2 = $("<li>").html(time);
+					let li3 = $("<li>").html(teacher);
+					
+					ul.append(li1).append(li2).append(li3);
+					
+					$("#result").append(ul);
+					$("#result").append("<hr/>");
+				}
+				
+				/* json 데이터 접근은 this 객체로 가능. 
+				   자바스크립트는 json을 데이터 자체로 해석하고 또는 클래스 정의 시 객체 리터럴로 해석한다 
+				   그래서 요소를 필드를 보기에 this.key로 접근이 가능하다 
+				let subject = json.school.subject;
+				$(subject).each(function() {
+					let title = this.title;
+					let time = this.time;
+					let teacher = this.teacher;
+					
+					// 결과를 출력하기 위한 동적 요소의 생성 
+					let ul = $("<ul>");
+					let li1 = $("<li>").html(title);
+					let li2 = $("<li>").html(time);
+					let li3 = $("<li>").html(teacher);
+					ul.append(li1).append(li2).append(li3);
+					
+					$("#result").append(ul);
+					$("#result").append("<hr />");
+				}); // each 함수의 종료 */
+				
+				}).fail(function(xhr, textStatus) {
+					 //통신이 실패했을 때 실행되는 함수.
+					$("#result").html(textStatus + " (HTTP-" + xhr.status + ")");
+				});
+			});	
+	</script>
+</body>
+</html>

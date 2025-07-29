@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>json(1) - 04_json.html</title>
+<link href="../image/icon.png" rel="icon" type="image/x-icon" />
+
+<link rel="stylesheet" href="../css/reset.css"/>
+<link rel="stylesheet" href="../css/common.css"/>
+</head>
+<body>
+	<h1 class="title">$.ajax() 함수를 사용한 JSON 데이터 읽기 (1)</h1>
+	<div class="exec">
+		<input type="button" value="JSON데이터 가져오기" id="mybtn" />
+	</div>
+	<div class="console" id="result"></div>
+
+	<script src="../js/jquery-3.7.1.min.js"></script>
+	<script>
+		$("#mybtn").on("click",function() {
+			$.ajax({
+				url: '/firstExample/ajax/json/04.json',
+				method: 'get',
+				dataType: 'json'
+			}).done(function (json){	//json 대신 data로 사용해도 문제없음. 변수명이니까 
+				let title = json.school.subject.title;
+				let time = json.school.subject.time;
+				let teacher = json.school.subject.teacher;
+				
+				let ul = $("<ul>");
+				let li1 =$("<li>").html(title);
+				let li2 =$("<li>").html(time);
+				let li3 =$("<li>").html(teacher);
+				
+				let data = ul.append(li1).append(li2).append(li3);
+				$("#result").html(data);
+			}).fail(function(xhr, textStatus){
+				$("#result").html(textStatus + "(HTTP-"+xhr.status +")");
+			});
+		});
+	</script>	
+	
+
+
+</body>
+</html>

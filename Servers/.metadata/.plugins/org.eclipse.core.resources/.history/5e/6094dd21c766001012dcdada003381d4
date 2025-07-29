@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Get Data - getData.html</title>
+		<link rel="shortcut icon" href="../image/icon.png" />
+		
+		<style>
+			#address{width:250px;}
+			button[type='button'], button[type='reset']{margin-top: 6px;}
+		</style>
+		
+	</head>
+	<body>
+		<form id="dataForm" id="dataForm">
+			<label>이름 : </label>
+			<input type="text" name="name" id="name" placeholder="이름"  /><br/>
+			
+			<label>주소 : </label>
+			<input type="text" name="address" id="address" placeholder="주소" /><br/>
+			
+			<button type = "button" id="submitBtn"> 전송 </button> &nbsp;&nbsp; 
+			<button type="reset">초기화</button>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,10 @@
+const form = document.getElementById("scoreForm");
+const score = document.getElementById("score");
+
+score.addEventListener("input", function() {
+	score.setCustomValidity("");
+});
+
+form.addEventListener("submit", function(e) {
+	e.preventDefault();
+});

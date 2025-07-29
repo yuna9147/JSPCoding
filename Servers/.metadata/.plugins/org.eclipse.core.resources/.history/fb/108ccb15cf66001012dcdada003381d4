@@ -1,0 +1,7 @@
+$("#submitBtn").on("click", function(){
+	if($("slect[name='lunch'] > option:selected").index() <0 ){
+		alert("점심 메뉴를 선택해 주세요.");
+		return;
+	}
+	
+})

@@ -1,0 +1,8 @@
+$("#submitBtn").on("click",function(){
+	
+	$("#frm").attr({
+		"method":"post",
+		"acttion":"/servletExample/calcServlet"
+	})
+})
+

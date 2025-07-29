@@ -1,0 +1,41 @@
+$("#submitBtn").on("click",function(){
+	
+	const numberPattern = /^\d+$/g;
+	
+	if($("#num1").val().replace(/\s/g,"")==""){
+				alert("첫번째 숫자를 입력해 주세요");
+				$("#num1").val("");
+				$("#num1").focus();
+				return;
+			} else {
+				if($("#num1").value.search(numberPattern) <0) {
+					alert("문자를 입력할 수 없습니다.");
+					$("#num1").val("");
+					$("#num1").focus();
+					return;
+				}
+			}
+	
+	if($("#num2").val().replace(/\s/g,"")==""){
+					alert("두번째 숫자를 입력해 주세요");
+					$("#num2").val("");
+					$("#num2").focus();
+					return;
+				}	else {
+						if($("#num2").value.search(numberPattern) <0) {
+							alert("문자를 입력할 수 없습니다.");
+							$("#num2").val("");
+							$("#num2").focus();
+							return;
+						}
+					}
+					
+/*					
+	$("#frm").attr({
+				"method":"post",
+				"action":"/servletExample/calcServlet"
+			});
+		$("#frm").submit();
+		*/	
+});
+

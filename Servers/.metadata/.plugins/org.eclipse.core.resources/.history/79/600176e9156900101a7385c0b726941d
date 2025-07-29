@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>subject 테이블 예제 : subjectForm.jsp</title>
+		<link href="../image/icon.png" rel="icon" type="image/x-icon" />
+	</head>
+	<body>
+		<h3>테이블 subject 학과 정보 등록</h3>
+		<hr/>
+	</body>
+</html>

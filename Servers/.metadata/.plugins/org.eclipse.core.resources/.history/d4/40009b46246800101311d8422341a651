@@ -1,0 +1,10 @@
+$("#submitBtn").on("click",function(){
+	
+
+$("#bookForm").attr({
+	"action" : "/servletExample/bookInput",
+	"method":"post"
+
+});
+	$("#bookForm").submit();
+});

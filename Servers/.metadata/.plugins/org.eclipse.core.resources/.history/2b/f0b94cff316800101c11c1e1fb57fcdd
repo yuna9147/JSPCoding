@@ -1,0 +1,41 @@
+package test;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class SingleServlet_out
+ */
+@WebServlet("/singleout")
+public class SingleServlet_out extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("charset='utf-8'");
+		
+		String id = (String)request.getAttribute("id");
+		String name = (String)request.getAttribute("name"); 
+		String city = (String) request.getAttribute("city");
+		
+		PrintWriter out = response.getWriter();
+		
+		out.println("<!DOCTYPE html><html>");
+	    out.println("<head><meta charset='UTF-8' />");
+	    out.println("<title>dispatcher 예제</title>");
+	    out.println("<link rel='icon' href='data:,'></head>");
+	    out.println("<body>");
+	    out.print("<div>");
+		out.print("안녕하세요 "+ city +"에 사는 "+name+"("+id+")님! 반갑습니다.");
+		out.print("</div></body></html>");
+		out.close();
+	}
+
+}

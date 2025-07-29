@@ -1,0 +1,23 @@
+{
+	"school":{
+		"subject":[
+			{
+			"title": "Javascript/jQuery/Ajax",
+			"time" : "매주 월/수/금 오후 7시 30분~10시 20분",
+			"teacher" : "주지훈"	
+			},	
+			
+			{
+				"title": "THML5+CSS3 기반의 반응형 웹",
+				"time" : "매주 화 오후 7시 30분~10시 20분",
+				"teacher" : "강훈"	
+			},	
+			
+			{
+				"title": "Java입문에서 활용까지",
+				"time" : "매주 목 오후 7시 30분~10시 20분",
+				"teacher" : "박보검"	
+			}
+		]
+	}
+}

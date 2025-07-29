@@ -1,0 +1,31 @@
+$("#submitBtn").on("click",function(){
+	
+	if($(this).val().replace(/\s/g,"")===""){
+		alert("책제목을 입력해 주세요");
+		$("#title").val("");
+		$("#title").focus();
+		return;
+	}
+
+	if($("#author").val()==""){
+			alert("책저자를 입력해 주세요");
+			$("#author").val("");
+			$("#author").focus();
+			return;
+		}
+		
+	if($("#publisher").val()==""){
+			alert("출판사를 입력해 주세요");
+			$("#publisher").val("");
+			$("#publisher").focus();
+			return;
+		}	
+	
+
+$("#bookForm").attr({
+	"action" : "/servletExample/bookInput",
+	"method":"post"
+
+});
+	$("#bookForm").submit();
+});

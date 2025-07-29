@@ -1,0 +1,8 @@
+$("#submitBtn").on("click",function() {
+	if($("#name").val().replace(/\s/g,"")==""){
+		alert("이름을 입력해 주세요");
+		$("#name").val("");
+		$("#name").focus();
+		return;
+	}
+})

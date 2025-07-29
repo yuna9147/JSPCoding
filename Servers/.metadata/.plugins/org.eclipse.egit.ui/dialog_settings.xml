@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item key="MAIN_SASH_FORM_ORIENTATION_VERTICAL" value="false"/>
+		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="200,200"/>
+		<item key="STAGING_SASH_FORM_WEIGHT" value="200,200"/>
+		<item key="sortItemState" value="false"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+		<list key="C:\backenddeveloper\JSPCoding\firstExample\.git">
+			<item value="false"/>
+			<item value="user1 &lt;user1@DESKTOP-27R8N2D&gt;"/>
+			<item value="2025-07-25 / 추가 수업내용 업로드"/>
+			<item value="user1 &lt;user1@DESKTOP-27R8N2D&gt;"/>
+			<item value="0000000000000000000000000000000000000000"/>
+			<item value="0"/>
+			<item value="false"/>
+			<item value=""/>
+		</list>
+		<list key="C:\backenddeveloper\JSPCoding\servletExample\.git">
+			<item value="false"/>
+			<item value="user1 &lt;user1@DESKTOP-27R8N2D&gt;"/>
+			<item value="&#x0D;&#x0A;Signed-off-by: user1 &lt;user1@DESKTOP-27R8N2D&gt;"/>
+			<item value="user1 &lt;user1@DESKTOP-27R8N2D&gt;"/>
+			<item value="0000000000000000000000000000000000000000"/>
+			<item value="0"/>
+			<item value="false"/>
+			<item value=""/>
+		</list>
+	</section>
+</section>

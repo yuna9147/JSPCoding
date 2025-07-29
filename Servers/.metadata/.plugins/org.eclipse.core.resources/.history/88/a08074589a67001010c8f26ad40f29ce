@@ -1,0 +1,5 @@
+$("#bookForm").attr({
+	"method":"post",
+	"action" : "/servletExample/bookOutput"
+});
+$("#bookForm").submit();

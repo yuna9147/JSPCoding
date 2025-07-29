@@ -1,0 +1,58 @@
+/*
+const form = document.getElementById("scoreForm");
+const score = document.getElementById("score");
+const hakjum = document.getElementById("result");
+
+
+score.addEventListener("input", function() {
+	score.setCustomValidity("");
+});
+
+form.addEventListener("submit", function(e) {
+	e.preventDefault();
+	
+	const pattern = /^(100|[1-9][0-9]?|0)$/;
+	
+	if(!pattern.test(score.value)) {
+		score.setCustomValidity("점수는 0~100점 사이로 입력해 주세요.");
+		score.reportValidity();
+		score.value = "";
+		hakjum.value="";
+		return;
+	}
+
+	
+	$("#sendBtn").on("click", ()=>{
+		const pattern = /^(100|[1-9][0-9]?|0)$/;
+		
+		if(!pattern.test(score.value)) {
+				alert("점수는 0~100점으로 입력해 주세요")
+				$("#score").val("");
+				$("#result").val("");
+				return;
+			}
+	});
+*/	
+	/* 
+	form.method = "post";
+	//score.jsp연결
+	// form.action = "/scriptTag/jsp/score.jsp";
+	
+	//score 서블릿 연결
+	form.action = "/scriptTag/score";
+	
+	form.submit();
+	*/
+	
+	$.ajax({
+		url:"/scriptTag/jsp/score2.jsp",
+		method:"post",
+		data: $("#scoreForm").serialize(), //폼전체 전달
+		dataType: "text"
+	}).done(function (data) {
+		$("#result").val(data);
+	}).fail(function(xhr, status){
+		alert(status + " 발생.\n상태: " + xhr.status);
+	});
+	
+//});

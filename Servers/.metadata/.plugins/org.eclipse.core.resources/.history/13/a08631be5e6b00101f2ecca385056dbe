@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>subject 테이블 예제 : searchForm.jsp</title>
+	</head>
+	<body>
+
+		<form class="input-group" role="search">
+			<input type="text" class="form-control" name="subjectName" id="name" placeholder="학과명 검색" >
+			<button class="btn btn-outline-secondary" type="button" id="searchSubject">학과명 검색</button>
+			<button class="btn btn-outline-secondary" type="button"id="searchAll">전체 검색</button>
+    </form>
+    	<br/>
+	</body>
+</html>

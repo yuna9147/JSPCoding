@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>책정보를 전달하는 forward 예제</title>
+		<link rel="shortcut icon" href="../image/icon.png" />
+	</head>
+	<body>
+		<h3>책 정보 입력</h3>
+		<form name="bookForm" id="bookForm">
+			<label>책제목 : </label><input name="title" id="title">
+			<label>책저자 : </label><input name="author" id="author">
+			<label>출판사 : </label><input name="publisher" id="publisher">
+			
+		</form>
+	</body>
+</html>

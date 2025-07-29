@@ -1,0 +1,19 @@
+$("#submitBtn").on("click",function(){
+
+	if($("#id").val().replace("/\s/g","")===""){
+		alert("아이디를 입력해 주세요");
+		return;
+	}
+	
+	if($("#name").val().replace("/\s/g","")===""){
+			alert("이름을 입력해 주세요");
+			return;
+		}
+
+		$("#frm").attr({
+			"method":"post",
+			"action":"/test/singleServlet"
+		});
+		
+		$("#frm").submit();		
+});
