@@ -60,4 +60,17 @@ public class BoardServiceImpl implements BoardService {
 		int result = dao.boardDelete(boardVO);
 		return result;
 	}
+	
+	@Override
+	public int boardPasswdCheck(BoardVO boardVO) {
+		int result = dao.boardPasswdCheck(boardVO);
+		return result;
+	}
+	
+
+	@Override
+	public List<BoardVO> boardList(BoardVO boardVO) {
+		List<BoardVO> list = dao.boardList(boardVO);
+		return list;
+	}
 }

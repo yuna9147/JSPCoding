@@ -155,19 +155,85 @@ public class BoardDAO {
 	    return result;
 	}
 
-	public int boardDelete(BoardVO boardVO) {
-		StringBuilder query = new StringBuilder();
-		query.append("DELETE FROM board WHERE num=?");
-		
-		int result=0;
-		try (Connection conn = getConnection();
-		         PreparedStatement pstmt = conn.prepareStatement(query.toString());){
-			
-			pstmt.setInt(1, boardVO.getNum());
-			result = pstmt.executeUpdate();
-		}catch(SQLException e) {
-			System.err.println("[boardDelete] SQL 오류: " + e.getMessage());
-		}
-		return result;
+    public int boardDelete(BoardVO boardVO){
+        StringBuilder query = new StringBuilder();
+        query.append("DELETE FROM board WHERE num = ?");
+        
+    	int result = 0;
+        try(Connection conn = getConnection();
+        	PreparedStatement pstmt = conn.prepareStatement(query.toString());) {
+
+            pstmt.setInt(1, boardVO.getNum());
+            result = pstmt.executeUpdate();
+        }catch(SQLException e) {
+        	System.err.println("[boardDelete] SQL 오류: " + e.getMessage());
+        	//e.printStackTrace(); //오류 발생 시 주석 해제
+        }
+        return result;
 	}
+    
+    public int boardPasswdCheck(BoardVO boardVO) {
+		String query = """
+			SELECT CASE 
+				WHEN EXISTS (SELECT 1 FROM board WHERE num = ? AND passwd = ?) 
+					THEN 1 
+					ELSE 0 
+				END AS result
+			FROM dual
+		""";
+		
+		int result = 0;
+        try (Connection conn = getConnection();
+        	 PreparedStatement	pstmt = conn.prepareStatement(query);) {
+        	
+        	pstmt.setInt(1, boardVO.getNum());
+			pstmt.setString(2, boardVO.getPasswd());
+
+            try(ResultSet rs = pstmt.executeQuery()){
+            	if(rs.next()){
+    				result = rs.getInt("result"); // 비밀번호 일치: 1 / 비밀번호 불일치: 0 반환
+    			}
+            } 
+        }catch(SQLException e) {
+        	System.err.println("[boardPasswdCheck] SQL 오류: " + e.getMessage());
+        	//e.printStackTrace(); //오류 발생 시 주석 해제
+        }
+        return result;
+	}
+    
+    public List<BoardVO> boardList(BoardVO boardVO) {
+		List<BoardVO> list = new ArrayList<BoardVO>();
+		String search = boardVO.getSearch();
+		String keyword = boardVO.getKeyword();
+		
+		StringBuilder query = new StringBuilder();
+		query.append("SELECT num, author, title, ");
+		query.append("to_char(writeday, 'YYYY/MM/DD') writeday, readcnt ");
+		query.append("FROM board ");
+		
+		switch(search) {
+		case "title":
+			query.append("WHERE title LIKE ? ");
+			break;
+		case "author":
+			query.append("WHERE author LIKE ? ");
+			break;
+		}
+		query.append("ORDER BY num DESC");
+		
+		 try (Connection conn = getConnection();
+	             PreparedStatement pstmt = conn.prepareStatement(query.toString());) {
+			 if(!search.equals("all")) {
+				 pstmt.setString(1, "%"+keyword+"%");
+			 }
+			 try(ResultSet rs = pstmt.executeQuery()){
+				 while(rs.next()) {
+					 list.add(addBoard(rs));
+				 }
+			 }
+		 }catch(SQLException e) {
+		System.err.println("[boardList] SQL 오류: " + e.getMessage());
+		 }
+		 return list;
+    }
 }

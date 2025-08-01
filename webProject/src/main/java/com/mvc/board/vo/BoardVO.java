@@ -9,6 +9,9 @@ public class BoardVO {
 	private String writeday;
 	private String passwd;
 	
+	private String search;
+	private String keyword;
+	
 	public BoardVO() {
 		super();
 	}
@@ -78,6 +81,22 @@ public class BoardVO {
 
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
+	}
+
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 
 	@Override
