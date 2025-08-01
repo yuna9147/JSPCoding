@@ -9,28 +9,30 @@ import com.mvc.board.vo.BoardVO;
 import com.mvc.common.controller.Controller;
 
 public class UpdateBoardController implements Controller {
+
+	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-	
-	String path = null;
-
-	// 1. VO객체에 데이터 바인딩
-	BoardVO boardVO = new BoardVO();
-	boardVO.setTitle(request.getParameter("title")); // input 태그의 name명을 명시. name명=값의 형태로 서버에 전달
-	boardVO.setContent(request.getParameter("content"));
-	boardVO.setPasswd(request.getParameter("passwd"));
-	boardVO.setNum(Integer.parseInt(request.getParameter("num")));
-
-	BoardService service = BoardServiceImpl.getInstance();
-	int result = service.boardUpdate(boardVO);
-	
-	if (result == 1) { // 입력 성공시
-		path = "/board/getBoardList.do"; // 게시판 리스트 요청
-	} else {          // 입력 실패시
-		request.setAttribute("errorMsg", "등록완료에 문제가 있어 잠시 후 다시 입력해 주세요.");
-		path = "/board/updateForm";      // 입력 화면으로 이동
+		String path="";
+		
+		String passwd = request.getParameter("passwd");
+		if(passwd.isEmpty()) passwd="";
+		
+		BoardVO  boardVO = new BoardVO ();
+		boardVO.setNum(Integer.parseInt(request.getParameter("num")));
+		boardVO.setTitle(request.getParameter("title"));
+		boardVO.setContent(request.getParameter("content"));
+		boardVO.setPasswd(passwd);
+		
+		BoardService service = BoardServiceImpl.getInstance();
+		int result = service.boardUpdate(boardVO);
+		
+		if(result==1) {
+			path = "/board/detailBoard.do?num="+boardVO.getNum();
+		} else {
+			path="/error/errorPage";
+		}
+		
+		return path;
 	}
-	
-	// 3. 화면 네비게이션
-	return path;
-}
+
 }

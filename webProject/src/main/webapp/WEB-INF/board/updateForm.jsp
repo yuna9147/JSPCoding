@@ -4,7 +4,7 @@
 	<body>
 		<div class="container">
 			<div class="text-center">
-				<h3>게시판 상세 화면</h3>
+				<h3>게시판 수정 화면</h3>
 			</div>
 			
 			<form id="f_updateForm">
@@ -41,7 +41,7 @@
 						<tr>
 							<td class="text-center">비밀번호</td>
 							<td colspan="5">
-								<input type="password" name="passwd" id="passwd" class="form-control" placeholder="기존 비밀번호가 아닌 수정할 비밀번호 입력" />
+								<input type="password" name="passwd" id="passwd" class="form-control" placeholder="비밀번호 변경을 원하시는 경우 작성해주세요" />
 							</td>
 						</tr>
 					

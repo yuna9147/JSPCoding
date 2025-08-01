@@ -127,28 +127,47 @@ public class BoardDAO {
     }
     
     public int boardUpdate(BoardVO boardVO) {
-    	
-    
-    StringBuilder query = new StringBuilder();
-	query.append("UPDATE board SET title=?, content=?, passwd=? ");
-	query.append("WHERE num=? ");
-    
-    int result = 0;
+	    StringBuilder query = new StringBuilder();
+		query.append("UPDATE board SET title=?, content=? ");
+		if(boardVO.getPasswd()!="") query.append(", passwd=? ");
+		query.append("WHERE num=? ");
+	    
+	    int result = 0;
+	
+	    try (Connection conn = getConnection();
+	         PreparedStatement pstmt = conn.prepareStatement(query.toString());) { // 주석 부분을 해제하고 사용한다면 query.toString() -> query로 변경.
+	
+	        pstmt.setString(1, boardVO.getTitle());
+	        pstmt.setString(2, boardVO.getContent());
+	        
+	        if(boardVO.getPasswd()!="") {
+	        	pstmt.setString(3, boardVO.getPasswd());
+		        pstmt.setInt(4, boardVO.getNum());	
+	        } else {
+	        pstmt.setInt(3, boardVO.getNum());
+	        }
+	
+	        result = pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        System.err.println("[boardUpdate] SQL 오류: " + e.getMessage());
+	        //e.printStackTrace();  //오류 발생 시 주석 해제
+	    }
+	    return result;
+	}
 
-    try (Connection conn = getConnection();
-         PreparedStatement pstmt = conn.prepareStatement(query.toString())) { // 주석 부분을 해제하고 사용한다면 query.toString() -> query로 변경.
-
-        pstmt.setString(1, boardVO.getTitle());
-        pstmt.setString(2, boardVO.getContent());
-        pstmt.setString(3, boardVO.getPasswd());
-        pstmt.setInt(4, boardVO.getNum());
-        
-
-        result = pstmt.executeUpdate();
-    } catch (SQLException e) {
-        System.err.println("[boardUpdate] SQL 오류: " + e.getMessage());
-        //e.printStackTrace();  //오류 발생 시 주석 해제
-    }
-    return result;
-}
+	public int boardDelete(BoardVO boardVO) {
+		StringBuilder query = new StringBuilder();
+		query.append("DELETE FROM board WHERE num=?");
+		
+		int result=0;
+		try (Connection conn = getConnection();
+		         PreparedStatement pstmt = conn.prepareStatement(query.toString());){
+			
+			pstmt.setInt(1, boardVO.getNum());
+			result = pstmt.executeUpdate();
+		}catch(SQLException e) {
+			System.err.println("[boardDelete] SQL 오류: " + e.getMessage());
+		}
+		return result;
+	}
 }
