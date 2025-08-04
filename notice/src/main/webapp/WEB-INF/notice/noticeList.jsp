@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <%@ include file="/WEB-INF/common/header.jsp" %>
 
 <body>
 	<div class="container">
 		<div class="text-center"><h3>공지 게시판</h3></div>	
 		<form name="detailForm" id="detailForm">
-			<input type="hidden" name="num" id="num" />
+			<input type="hidden" name="notice_no" id="num" />
 		</form>
 		
 		<div id="NoticeList">
@@ -25,13 +25,13 @@
 					<c:choose>
 						<c:when test="${not empty list}" >
 							<c:forEach var="notice" items="${list}">
-								<tr class="text-center" data-num="${notice.num}">
-									<td>${notice.num}</td>
-									<td class="text-start">
-										<span class="goDetail">${notice.title}</span></td>  
-									<td>${notice.author}</td>
+								<tr class="text-center" data-num="${notice.notice_no}">
+									<td>${notice.notice_no}</td>
+									<td class="text-start ">
+									<span class="goDetail">${notice.title}</span></td>  
+									<td>${notice.writer}</td>
 									<td>${notice.writeday}</td>
-									<td>${notice.readcnt}</td>
+									<td>${notice.view_count}</td>
 								</tr>
 							</c:forEach>
 						</c:when>

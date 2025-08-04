@@ -5,7 +5,7 @@
 	<body>
 		<div class="container">
 			<div class="text-center"><h3>게시판 상세 화면</h3></div>
-			<form name="dagaForm" id="dataForm">
+			<form name="dataForm" id="dataForm">
 				<input type="hidden" name="num" value="${detail.num }">
 			</form>
 			<div class="row text-center mb-2">
