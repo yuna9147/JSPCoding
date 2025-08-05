@@ -24,7 +24,7 @@ public class InsertController implements Controller {
 			int result = service.insert(noticeVO);
 			
 			if(result ==1) {
-				path="/notice/noticeList.do";
+				path = "/notice/noticeList.do";
 			} else {
 				request.setAttribute("errorMsg", "등록완료에 문제가 있어 잠시 후 다시 입력해 주세요." );
 				path = "/notice/insertForm";

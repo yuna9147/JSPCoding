@@ -30,8 +30,6 @@ public class NoticeDAO {
 		noticeVO.setWriter(rs.getString("writer"));
 		noticeVO.setWriteday(rs.getString("writeday"));
 		noticeVO.setView_count(rs.getInt("view_count"));
-
-
 		
 		return noticeVO;
 	}

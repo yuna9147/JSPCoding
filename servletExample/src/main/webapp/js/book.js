@@ -18,7 +18,7 @@ $("#submitBtn").on("click",function(){
 
 $("#bookForm").attr({
 	"action" : "/servletExample/bookInput",
-	"method":"post"
+	"method": "post"
 
 });
 	$("#bookForm").submit();
